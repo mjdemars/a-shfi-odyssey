@@ -486,14 +486,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  jumpForce: 200
+  jumpForce: 50
   ceilingCheck: {fileID: 1383534251}
   groundCheck: {fileID: 1326071611}
   groundObjects:
     serializedVersion: 2
     m_Bits: 256
   checkRadius: 0.2
-  maxJumpCount: 2
+  maxJumpCount: 1
 --- !u!1 &1873213805
 GameObject:
   m_ObjectHideFlags: 0
