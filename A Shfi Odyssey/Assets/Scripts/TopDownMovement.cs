@@ -41,14 +41,13 @@ public class TopDownMovement : MonoBehaviour
     // better for handling physics, can be called multiple times per update frame
     private void FixedUpdate()
     {
-        //move
         Move();
     }
 
     private void ProcessInputs() 
     {
-        moveHor = Input.GetAxis("Horizontal");
-        moveVert = Input.GetAxis("Vertical");
+        moveHor = Input.GetAxisRaw("Horizontal");
+        moveVert = Input.GetAxisRaw("Vertical");
     }
 
     private void Animate() 
