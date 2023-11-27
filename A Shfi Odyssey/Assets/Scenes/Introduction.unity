@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 996029691}
   m_HandleRect: {fileID: 996029690}
-  m_Direction: 3
+  m_Direction: 2
   m_Value: 1
   m_Size: 0.3529412
   m_NumberOfSteps: 0
@@ -1277,7 +1277,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1949772152
 RectTransform:
