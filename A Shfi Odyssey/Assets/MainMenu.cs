@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public ParticleSystem bubbles;
+    // public ParticleSystem bubbles;
 
     // Start is called before the first frame update
     public void PlayGame()
     {
-        ParticleSystem.EmissionModule module = bubbles.emission;
-        module.enabled = true;
+        // if (SceneManager.GetActiveScene().buildIndex == 0) {
+        //     bubbles.Play();
+        // }
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
