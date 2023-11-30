@@ -8,6 +8,10 @@ public class GridMovement : MonoBehaviour
     public Transform movePoint;
 
     public LayerMask whatStopsMovement;
+    public LayerMask player;
+
+    public bool isPlayer;
+    public bool isRock;
 
     // called before the first frame update
     void Start()
@@ -22,19 +26,54 @@ public class GridMovement : MonoBehaviour
         // if player is within range of move point
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
         {
+            if (isPlayer) movePlayer();
+            else if (isRock) moveRock();
+        }
+    }
 
-            // if horizontal input detected
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+    void movePlayer()
+    {
+        // if horizontal input detected
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+        {
+            // if player is more than one tile away from obstacle
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, whatStopsMovement))
             {
-                // if player is more than one tile away from obstacle
+                // modify move point
+                movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+            }
+        } else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) // if vertical input detected
+        {
+            // if player is more than one tile away from obstacle
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .2f, whatStopsMovement))
+            {
+                // modify move point
+                movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+            }
+        }
+    }
+
+    void moveRock()
+    {
+        // if horizontal input detected
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+        {
+            // if rock is adjacent to player
+            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .05f, player))
+            {
+                // if rock is more than one tile away from obstacle
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, whatStopsMovement))
                 {
                     // modify move point
                     movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
                 }
-            } else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) // if vertical input detected
+            }
+        } else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) // if vertical input detected
+        {
+            // if rock is adjacent to player
+            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .05f, player))
             {
-                // if player is more than one tile away from obstacle
+                // if rock is more than one tile away from boundaries
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .2f, whatStopsMovement))
                 {
                     // modify move point
