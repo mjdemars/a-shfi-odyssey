@@ -8,10 +8,10 @@ public class GridMovement : MonoBehaviour
     public Transform movePoint;
 
     public LayerMask whatStopsMovement;
-    public LayerMask player;
 
-    public bool isPlayer;
-    public bool isRock;
+    private bool facingRight = true;
+    private float moveHor;
+    private float moveVert;
 
     // called before the first frame update
     void Start()
@@ -21,65 +21,53 @@ public class GridMovement : MonoBehaviour
 
     void Update()
     {
+        moveHor = Input.GetAxisRaw("Horizontal");
+        moveVert = Input.GetAxisRaw("Vertical");
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         // if player is within range of move point
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
         {
-            if (isPlayer) movePlayer();
-            else if (isRock) moveRock();
+            movePlayer();
+            Animate();
         }
     }
 
     void movePlayer()
     {
         // if horizontal input detected
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+        if (Mathf.Abs(moveHor) == 1f)
         {
             // if player is more than one tile away from obstacle
-            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, whatStopsMovement))
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
             {
                 // modify move point
-                movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                movePoint.position += new Vector3(moveHor, 0f, 0f);
             }
-        } else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) // if vertical input detected
+        } else if (Mathf.Abs(moveVert) == 1f) // if vertical input detected
         {
             // if player is more than one tile away from obstacle
-            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .2f, whatStopsMovement))
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .2f, whatStopsMovement))
             {
                 // modify move point
-                movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                movePoint.position += new Vector3(0f, moveVert, 0f);
             }
         }
     }
 
-    void moveRock()
+    private void Animate() 
     {
-        // if horizontal input detected
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
-        {
-            // if rock is adjacent to player
-            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .05f, player))
-            {
-                // if rock is more than one tile away from obstacle
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, whatStopsMovement))
-                {
-                    // modify move point
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                }
-            }
-        } else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) // if vertical input detected
-        {
-            // if rock is adjacent to player
-            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .05f, player))
-            {
-                // if rock is more than one tile away from boundaries
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .2f, whatStopsMovement))
-                {
-                    // modify move point
-                    movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-                }
-            }
+        if (moveHor > 0 && facingRight) {
+            FlipCharacterHor();
+        } else if (moveHor < 0 && !facingRight) {
+            FlipCharacterHor();
         }
     }
+
+    private void FlipCharacterHor()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f, Space.Self);
+    }
+
 }
