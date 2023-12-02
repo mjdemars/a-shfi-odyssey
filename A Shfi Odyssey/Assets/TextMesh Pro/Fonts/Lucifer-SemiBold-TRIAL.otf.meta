@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3718eb9ca46da4d308128c5a2b25d8b1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lucifer TRIAL
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 467f28faa160641398b6897a2c033ddc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

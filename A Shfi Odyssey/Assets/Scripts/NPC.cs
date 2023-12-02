@@ -2,42 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
-    public Text dialogueText;
+    public TextMeshProUGUI dialogueText;
     public string[] dialogue;
     private int index;
 
     public float wordSpeed;
     public bool playerIsClose;
 
-    public bool isMonologue;
-
-    // Start is called before the first frame update
-    void Start()
+void Start()
     {
+        RemoveText();
+        dialogueText.text = "";
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((isMonologue || Input.GetKeyDown(KeyCode.E)) && playerIsClose)
+        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
-            if (dialoguePanel.activeInHierarchy)
-            {
-                zeroText();
-            }
-            else
+            if (!dialoguePanel.activeInHierarchy)
             {
                 dialoguePanel.SetActive(true);
+                StartCoroutine(Typing());
             }
+            else if (dialogueText.text == dialogue[index])
+            {
+                NextLine();
+            }
+
         }
     }
 
-    public void zeroText()
+    public void RemoveText()
     {
         dialogueText.text = "";
         index = 0;
@@ -63,7 +65,7 @@ public class NPC : MonoBehaviour
         }
         else
         {
-            zeroText();
+            RemoveText();
         }
     }
 
@@ -80,7 +82,7 @@ public class NPC : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsClose = false;
-            zeroText();
+            RemoveText();
         }
     }
 }
