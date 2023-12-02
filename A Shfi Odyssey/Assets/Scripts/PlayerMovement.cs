@@ -66,9 +66,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animate() 
     {
-        if (moveDirection > 0 && facingRight) {
+        if (moveDirection < 0 && facingRight) {
             FlipCharacter();
-        } else if (moveDirection < 0 && !facingRight) {
+        } else if (moveDirection > 0 && !facingRight) {
             FlipCharacter();
         }
     }
