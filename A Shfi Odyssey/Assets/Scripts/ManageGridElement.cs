@@ -27,17 +27,17 @@ public class ManageGridElement : MonoBehaviour
     {
         getInputs();
 
-        if (Layer == "Player")
+        // if sprite is within range of move point
+        if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
         {
-            // if player is within range of move point
-            if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
-            {
+            if (Layer == "Player")
+            {   
                 movePlayer();
                 Animate();
+            } else if (Layer == "Pushable")
+            {
+                moveRock();
             }
-        } else if (Layer == "Pushable")
-        {
-            moveRock();
         }
     }
 
@@ -87,6 +87,20 @@ public class ManageGridElement : MonoBehaviour
 
     void moveRock()
     {
-
+        // if horizontal input detected
+        if (Mathf.Abs(moveHor) == 1f)
+        {
+            // if rock is less than one tile away from player
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), 3f, Player))
+            {
+                // if rock is more than one tile away from obstacle
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
+                {
+                    // modify move point
+                    movePoint.position += new Vector3(moveHor, 0f, 0f);
+                }
+            }
+        }
     }
+
 }
