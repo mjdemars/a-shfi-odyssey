@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridMovement : MonoBehaviour
+public class ManageGridElement : MonoBehaviour
 {
+    // set in Unity
     public float moveSpeed;
     public Transform movePoint;
-
     public LayerMask whatStopsMovement;
+    public LayerMask Player;
+    public LayerMask Pushable;
+    public string Layer;
 
-    private bool facingRight = true;
+    // detected movement
     private float moveHor;
     private float moveVert;
 
-    // called before the first frame update
+    private bool facingRight = true;
+
     void Start()
     {
         movePoint.parent = null;
@@ -21,16 +25,42 @@ public class GridMovement : MonoBehaviour
 
     void Update()
     {
+        getInputs();
+
+        if (Layer == "Player")
+        {
+            // if player is within range of move point
+            if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
+            {
+                movePlayer();
+                Animate();
+            }
+        } else if (Layer == "Pushable")
+        {
+            moveRock();
+        }
+    }
+
+    void getInputs()
+    {
         moveHor = Input.GetAxisRaw("Horizontal");
         moveVert = Input.GetAxisRaw("Vertical");
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+    }
 
-        // if player is within range of move point
-        if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
-        {
-            movePlayer();
-            Animate();
+    void Animate() 
+    {
+        if (moveHor > 0 && facingRight) {
+            FlipCharacterHor();
+        } else if (moveHor < 0 && !facingRight) {
+            FlipCharacterHor();
         }
+    }
+
+    void FlipCharacterHor()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f, Space.Self);
     }
 
     void movePlayer()
@@ -55,19 +85,8 @@ public class GridMovement : MonoBehaviour
         }
     }
 
-    private void Animate() 
+    void moveRock()
     {
-        if (moveHor > 0 && facingRight) {
-            FlipCharacterHor();
-        } else if (moveHor < 0 && !facingRight) {
-            FlipCharacterHor();
-        }
-    }
 
-    private void FlipCharacterHor()
-    {
-        facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f, Space.Self);
     }
-
 }
