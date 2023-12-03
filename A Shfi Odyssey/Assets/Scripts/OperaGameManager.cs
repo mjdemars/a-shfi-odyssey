@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class OperaGameManager : MonoBehaviour
 {
-    public SpriteRenderer[] directionSprites;
+    public GameObject[] directionSprites;
 
     private int dirSelect;
 
@@ -33,7 +33,7 @@ public class OperaGameManager : MonoBehaviour
     {
         //add the pattern to the callphaseroutine
         generateList();
-        showArrow(dir.Up);
+        showArrow((dir)UnityEngine.Random.Range(0, Enum.GetValues(typeof(dir)).Length));
     }
 
     // Update is called once per frame
@@ -110,8 +110,7 @@ public class OperaGameManager : MonoBehaviour
     void showArrow(dir direction)
     {
         //the arrow of the inputted direction will glow and then turn off.
-        UnityEngine.Debug.Log(directionSprites.Length);
-        directionSprites[(int)direction].color = new Color(1f, 1f, 1f, 1f);
+        directionSprites[(int)direction].GetComponent<Animator>().SetBool("isGlowing", true);
     }
 
     //roadmap for what to do:
