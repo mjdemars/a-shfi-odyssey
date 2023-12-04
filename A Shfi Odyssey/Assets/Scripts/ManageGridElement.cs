@@ -87,11 +87,24 @@ public class ManageGridElement : MonoBehaviour
 
     void moveRock()
     {
-        // if horizontal input detected
-        if (Mathf.Abs(moveHor) == 1f)
+        if (moveHor == 1f)  // if shfi is moving right
         {
             // if rock is less than one tile away from player
-            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), 3f, Player))
+            // if (Physics2D.OverlapBox(movePoint.position + new Vector3(moveHor, 0f, 0f), new Vector2(2f, 0f), Player))
+            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, Player))
+            {
+                // if rock is more than one tile away from obstacle
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
+                {
+                    // modify move point
+                    movePoint.position += new Vector3(moveHor, 0f, 0f);
+                }
+            }
+        } else if (moveHor == -1f) // if shfi is moving left
+        {
+            // if rock is less than one tile away from player
+            // if (Physics2D.OverlapBox(movePoint.position + new Vector3(moveHor, 0f, 0f), new Vector2(2f, 0f), Player))
+            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, Player))
             {
                 // if rock is more than one tile away from obstacle
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
