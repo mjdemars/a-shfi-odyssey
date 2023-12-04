@@ -9,7 +9,7 @@ public class StartPuzzle : MonoBehaviour
 
     private GameObject player;
 
-    public Rigidbody2D rBody;
+    private Rigidbody2D rBody;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,7 @@ public class StartPuzzle : MonoBehaviour
             else
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+                Globals.shipPuzzle = true;
             }
         }
     }
