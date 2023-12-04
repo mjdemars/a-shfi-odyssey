@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ManageGridElement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ManageGridElement : MonoBehaviour
     public LayerMask whatStopsMovement;
     public LayerMask Player;
     public LayerMask Pushable;
+    public LayerMask Anchor;
     public string Layer;
 
     // detected movement
@@ -39,6 +41,12 @@ public class ManageGridElement : MonoBehaviour
                 moveRock();
             }
         }
+
+        if (Layer == "Anchor")
+        {
+            if (gameWon()) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+        
     }
 
     void getInputs()
@@ -70,7 +78,8 @@ public class ManageGridElement : MonoBehaviour
         {
             // if player is more than one tile away from obstacle
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement)
-            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .4f, Pushable))
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .4f, Pushable)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .4f, Anchor))
             {
                 // modify move point
                 movePoint.position += new Vector3(moveHor, 0f, 0f);
@@ -78,7 +87,9 @@ public class ManageGridElement : MonoBehaviour
         } else if (Mathf.Abs(moveVert) == 1f) // if vertical input detected
         {
             // if player is more than one tile away from obstacle
-            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .2f, whatStopsMovement))
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .2f, whatStopsMovement)
+                && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .4f, Pushable)
+                && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .4f, Anchor))
             {
                 // modify move point
                 movePoint.position += new Vector3(0f, moveVert, 0f);
@@ -104,11 +115,18 @@ public class ManageGridElement : MonoBehaviour
         // if the space below a rock is empty, move down one space (gravity)
         if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, whatStopsMovement)
             && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Player)
-            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Pushable))
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Pushable)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Anchor))
         {
             // modify move point
             movePoint.position += new Vector3(0f, -1f, 0f);
         }
+    }
+
+    bool gameWon()
+    {
+        // if the there is nothing in the tile above the anchor, game is won
+        return (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .05f, Pushable));
     }
 
 }

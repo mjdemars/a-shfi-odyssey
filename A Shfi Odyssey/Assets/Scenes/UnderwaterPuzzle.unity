@@ -164,8 +164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 126009812}
   - component: {fileID: 126009813}
-  m_Layer: 6
-  m_Name: Rock Sprite
+  m_Layer: 10
+  m_Name: Anchor Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 144992869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock Move Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 343652953}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 528318657}
   - component: {fileID: 528318656}
   - component: {fileID: 528318655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,6 +626,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Pushable
 --- !u!4 &528318658
 Transform:
@@ -653,7 +656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 540851431}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock Move Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +858,7 @@ GameObject:
   - component: {fileID: 681059727}
   - component: {fileID: 681059726}
   - component: {fileID: 681059725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,6 +935,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Pushable
 --- !u!4 &681059728
 Transform:
@@ -1064,7 +1070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947559271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock Move Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,6 +1503,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Player
 --- !u!61 &1162761850
 BoxCollider2D:
@@ -1533,7 +1542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1190217919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock Move Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1567,7 +1576,7 @@ GameObject:
   - component: {fileID: 1667644811}
   - component: {fileID: 1667644810}
   - component: {fileID: 1667644809}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1644,6 +1653,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Anchor
 --- !u!4 &1667644812
 Transform:
@@ -1842,7 +1854,7 @@ GameObject:
   - component: {fileID: 1713725048}
   - component: {fileID: 1713725047}
   - component: {fileID: 1713725046}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1919,6 +1931,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Pushable
 --- !u!4 &1713725049
 Transform:
@@ -1949,7 +1964,7 @@ GameObject:
   - component: {fileID: 1728129581}
   - component: {fileID: 1728129580}
   - component: {fileID: 1728129579}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2043,6 +2058,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Pushable
 --- !u!1 &1736613017
 GameObject:
@@ -2056,7 +2074,7 @@ GameObject:
   - component: {fileID: 1736613021}
   - component: {fileID: 1736613020}
   - component: {fileID: 1736613019}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2150,6 +2168,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Pushable
 --- !u!1 &1782536608
 GameObject:
@@ -2163,7 +2184,7 @@ GameObject:
   - component: {fileID: 1782536611}
   - component: {fileID: 1782536610}
   - component: {fileID: 1782536609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2240,6 +2261,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Pushable
 --- !u!4 &1782536612
 Transform:
@@ -2489,7 +2513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1959187915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock Move Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2520,7 +2544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962000304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock Move Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2635,8 +2659,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2052641014}
-  m_Layer: 6
-  m_Name: Rock Move Point
+  m_Layer: 10
+  m_Name: Anchor Move Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2669,7 +2693,7 @@ GameObject:
   - component: {fileID: 2060438534}
   - component: {fileID: 2060438535}
   - component: {fileID: 2060438536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2716,6 +2740,9 @@ MonoBehaviour:
   Pushable:
     serializedVersion: 2
     m_Bits: 64
+  Anchor:
+    serializedVersion: 2
+    m_Bits: 1024
   Layer: Pushable
 --- !u!61 &2060438535
 BoxCollider2D:
@@ -2773,7 +2800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066163180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock Move Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
