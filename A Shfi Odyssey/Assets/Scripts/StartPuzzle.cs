@@ -9,19 +9,23 @@ public class StartPuzzle : MonoBehaviour
 
     private GameObject player;
 
+    public Rigidbody2D rBody;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        rBody = player.GetComponent<Rigidbody2D> ();
     }
 
     // Update is called once per frame
     void Update()
     {
-        DontDestroyOnLoad(player);
-
         if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeSelf)
         {
+            rBody.isKinematic = true;
+            DontDestroyOnLoad(player);
+
 
             if (Globals.boatPuzzle == false)
             {
