@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OperaGameManager : MonoBehaviour
 {
@@ -80,7 +81,10 @@ public class OperaGameManager : MonoBehaviour
 
         if (letPlayerRespond)
         {
-            playerController();
+            if (playerPattern.Count < currentRound)
+            {
+                playerController();
+            }
             
         } else
         {
@@ -209,6 +213,8 @@ public class OperaGameManager : MonoBehaviour
             {
                 // makes it clear you screwed up. In time this is also where the FAIL STATE should occur
                 UnityEngine.Debug.Log("Brother you screwed up here, let's clear your playerPattern");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
                 playerPattern.Clear();
             }
         }
@@ -217,6 +223,7 @@ public class OperaGameManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("WOOT! This was the final one!! CongratS!");
             playerPattern.Clear();
+            StartCoroutine(switchScene());
         } else
         {
             UnityEngine.Debug.Log("okay good job on that round chief! ready to go again?");
@@ -318,4 +325,10 @@ public class OperaGameManager : MonoBehaviour
      * when another button is pressed, we reset everything (it should look a lil jumpy). It might also be nice to have the arrow light up (something we can achieve by setting isGlowing based on vector
      * 
      */
+
+    IEnumerator switchScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        yield return new WaitForSeconds(1f);
+    }
 }
