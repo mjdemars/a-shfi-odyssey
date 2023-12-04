@@ -747,7 +747,7 @@ MonoBehaviour:
   - {fileID: 344903122}
   player: {fileID: 1682158095}
   stayLitTime: 0.8
-  offTime: 0.5
+  offTime: 0.2
   totalRounds: 5
   originalMovementStrength: 3
   gravityStrength: 2.99999
