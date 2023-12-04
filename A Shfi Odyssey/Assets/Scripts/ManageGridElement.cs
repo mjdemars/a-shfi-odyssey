@@ -102,9 +102,9 @@ public class ManageGridElement : MonoBehaviour
             }
         }
         // if the space below a rock is empty, move down one space (gravity)
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, whatStopsMovement)
-            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Player)
-            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Pushable))
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, whatStopsMovement)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Player)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Pushable))
         {
             // modify move point
             movePoint.position += new Vector3(0f, -1f, 0f);
