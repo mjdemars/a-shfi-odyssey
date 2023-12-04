@@ -5,25 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class StartPuzzle : MonoBehaviour
 {
-    private bool shipPuzzle;
-
     public GameObject dialoguePanel;
+
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
-        shipPuzzle = true;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeSelf)
         {
-            if (shipPuzzle == true)
+
+            if (Globals.boatPuzzle == false)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                shipPuzzle = false;
+                Globals.boatPuzzle = true;
             }
             else
             {

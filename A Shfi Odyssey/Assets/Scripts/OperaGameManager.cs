@@ -329,6 +329,7 @@ public class OperaGameManager : MonoBehaviour
     IEnumerator switchScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        // UpdatePlayerLocation();
         yield return new WaitForSeconds(1f);
     }
 }

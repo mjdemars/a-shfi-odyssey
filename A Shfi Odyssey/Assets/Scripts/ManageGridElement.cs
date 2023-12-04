@@ -44,7 +44,10 @@ public class ManageGridElement : MonoBehaviour
 
         if (Layer == "Anchor")
         {
-            if (gameWon()) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            if (gameWon()) 
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
         }
         
     }
