@@ -88,10 +88,9 @@ public class ManageGridElement : MonoBehaviour
 
     void moveRock()
     {
-        if (moveHor == 1f)  // if shfi is moving right
+        if (Mathf.Abs(moveHor) == 1f) // rock only moves if player pushes or pulls from a horizontally adjacent tile
         {
             // if rock is less than one tile away from player
-            // if (Physics2D.OverlapBox(movePoint.position + new Vector3(moveHor, 0f, 0f), new Vector2(2f, 0f), Player))
             if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .05f, Player))
             {
                 // if rock is more than one tile away from obstacle
@@ -101,19 +100,14 @@ public class ManageGridElement : MonoBehaviour
                     movePoint.position += new Vector3(moveHor, 0f, 0f);
                 }
             }
-        } else if (moveHor == -1f) // if shfi is moving left
+        }
+        // if the space below a rock is empty, move down one space (gravity)
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, whatStopsMovement)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Player)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Pushable))
         {
-            // if rock is less than one tile away from player
-            // if (Physics2D.OverlapBox(movePoint.position + new Vector3(moveHor, 0f, 0f), new Vector2(2f, 0f), Player))
-            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .05f, Player))
-            {
-                // if rock is more than one tile away from obstacle
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
-                {
-                    // modify move point
-                    movePoint.position += new Vector3(moveHor, 0f, 0f);
-                }
-            }
+            // modify move point
+            movePoint.position += new Vector3(0f, -1f, 0f);
         }
     }
 
