@@ -69,7 +69,8 @@ public class ManageGridElement : MonoBehaviour
         if (Mathf.Abs(moveHor) == 1f)
         {
             // if player is more than one tile away from obstacle
-            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, Pushable))
             {
                 // modify move point
                 movePoint.position += new Vector3(moveHor, 0f, 0f);
@@ -91,7 +92,7 @@ public class ManageGridElement : MonoBehaviour
         {
             // if rock is less than one tile away from player
             // if (Physics2D.OverlapBox(movePoint.position + new Vector3(moveHor, 0f, 0f), new Vector2(2f, 0f), Player))
-            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, Player))
+            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .05f, Player))
             {
                 // if rock is more than one tile away from obstacle
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
@@ -104,7 +105,7 @@ public class ManageGridElement : MonoBehaviour
         {
             // if rock is less than one tile away from player
             // if (Physics2D.OverlapBox(movePoint.position + new Vector3(moveHor, 0f, 0f), new Vector2(2f, 0f), Player))
-            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, Player))
+            if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .05f, Player))
             {
                 // if rock is more than one tile away from obstacle
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
