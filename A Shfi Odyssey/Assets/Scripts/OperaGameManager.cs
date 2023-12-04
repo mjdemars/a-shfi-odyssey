@@ -266,7 +266,7 @@ public class OperaGameManager : MonoBehaviour
         Vector3 playerPosition = player.GetComponent<Transform>().position;
         
         //if the player is currently at the center, nothing should happen
-        if (Vector3.Distance(new Vector3(0, 0, 0), playerPosition) <= 0.01)
+        if (Vector3.Distance(new Vector3(0, 0, 0), playerPosition) <= 0.005)
         {
             //if it's currently moving when this check passes,just reset everything
             if (MovementVector.sqrMagnitude > 0)
