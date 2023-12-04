@@ -18,7 +18,6 @@ void Start()
     {
         RemoveText();
         dialogueText.text = "";
-        
     }
 
     // Update is called once per frame
