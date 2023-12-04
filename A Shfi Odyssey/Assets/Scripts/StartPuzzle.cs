@@ -7,17 +7,18 @@ public class StartPuzzle : MonoBehaviour
 {
     public GameObject dialoguePanel;
 
-    private Transform player;
+    private Transform playerPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        playerPosition = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // DontDestroyOnLoad(playerPosition);
 
         if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeSelf)
         {
