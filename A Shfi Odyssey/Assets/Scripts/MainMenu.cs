@@ -6,9 +6,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
+    public AudioSource clickSound;
+
     // Start is called before the first frame update
     public void PlayGame()
     {
+        if (!clickSound.isPlaying)
+        {
+            clickSound.Play();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
