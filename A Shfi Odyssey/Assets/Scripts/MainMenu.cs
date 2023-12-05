@@ -6,15 +6,17 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public AudioSource clickSound;
+    private GameObject backgroundSound;
 
     // Start is called before the first frame update
     public void PlayGame()
     {
-        if (!clickSound.isPlaying)
+        backgroundSound = GameObject.FindGameObjectWithTag("IntroSounds");
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            clickSound.Play();
+            if (backgroundSound) Destroy(backgroundSound);
         }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
