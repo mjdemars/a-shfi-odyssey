@@ -115,15 +115,30 @@ public class ManageGridElement : MonoBehaviour
                 }
             }
         }
+
+        moveRockDown();
+    }
+
+    void moveRockDown()
+    {
+        float tilesFallen = 0; // track the number of tiles a rock has fallen down
+
         // if the space below a rock is empty, move down one space (gravity)
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, whatStopsMovement)
+        while (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, whatStopsMovement)
             && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Player)
             && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Pushable)
             && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Anchor))
         {
-            // modify move point
-            movePoint.position += new Vector3(0f, -1f, 0f);
+            movePoint.position += new Vector3(0f, -1f, 0f); // move rock down one tile
+            tilesFallen++;
         }
+
+        if (tilesFallen >= 2) // player loses if rock falls too far
+        {
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("You lost!");
+        }
+        
     }
 
     bool gameWon()
