@@ -15,6 +15,8 @@ public class OperaGameManager : MonoBehaviour
     public GameObject[] directionSprites;
 
     public GameObject player;
+
+    public GameObject colliderCheck;
     //
     private int dirSelect;
     
@@ -57,7 +59,9 @@ public class OperaGameManager : MonoBehaviour
 
     private float movementStrength;
 
-    
+    //variable that checks if a player is on their way back
+    public float checkRange = 0.6f;
+
     //variable for gravityStrength
     public float gravityStrength;
 
@@ -172,7 +176,7 @@ public class OperaGameManager : MonoBehaviour
         UnityEngine.Debug.Log("Yo you hit the " + direction + "key");
 
         //resets Shfi's position in case they were moving before:
-        player.GetComponent<Transform>().position = new Vector3(0, 0, 0);
+        player.GetComponent<Transform>().localPosition = new Vector3(0, 0, 0);
 
         //resets movementVector to ready next one
         MovementVector = new Vector3(0, 0, 0);
@@ -193,7 +197,6 @@ public class OperaGameManager : MonoBehaviour
                 break;
         }
         UnityEngine.Debug.Log("Movement Vector is now: " + MovementVector);
-
         //just to kickstart the movement a bit:
         player.GetComponent<Transform>().position += MovementVector * movementStrength * Time.deltaTime;
 
@@ -263,18 +266,35 @@ public class OperaGameManager : MonoBehaviour
     void playerMovement()
     {
         //the playerPosition gets modified in this method
-        Vector3 playerPosition = player.GetComponent<Transform>().position;
-        
+        Vector3 playerPosition = player.GetComponent<Transform>().localPosition;
+        Vector3 playerAbsolutePosition = player.GetComponent<Transform>().position;
         //if the player is currently at the center, nothing should happen
-        if (Vector3.Distance(new Vector3(0, 0, 0), playerPosition) <= 0.005)
+        //rather than checking if the player's position is at 0, instead we can check if the player's velocity is 
+
+        /*
+         * Previous check:
+         * Vector3.Distance(new Vector3(0, 0, 0), playerPosition) <= 0.005
+         */
+        //we need to fix the check here. Maybe just ray cast it
+
+
+        Ray testRay = new Ray(playerAbsolutePosition, MovementVector * checkRange * movementStrength/Math.Abs(movementStrength));
+        RaycastHit2D hitSomething = Physics2D.Raycast(testRay.origin, testRay.direction, checkRange);
+        UnityEngine.Debug.DrawRay(testRay.origin, testRay.direction, Color.green);
+        
+        //actual game stuff
+        if (hitSomething.collider != null && Physics2D.OverlapPoint(testRay.origin) == null)
         {
+            UnityEngine.Debug.Log("We detected SOMETHING???");
             //if it's currently moving when this check passes,just reset everything
             if (MovementVector.sqrMagnitude > 0)
             {
+                UnityEngine.Debug.Log("The position is: " + playerPosition);
                 movementStrength = originalMovementStrength;
                 playerPosition = new Vector3(0, 0, 0);
+                player.GetComponent<Transform>().localPosition = playerPosition;
                 MovementVector = new Vector3(0, 0, 0);
-
+                UnityEngine.Debug.Log("The position is now: " + playerPosition);
                 //when the player has hit the total amount of inputs for the round, only then should the values be compared
                 if (playerPattern.Count >= currentRound)
                 {
@@ -301,28 +321,10 @@ public class OperaGameManager : MonoBehaviour
     }
 
     /*
-     * pressing issues:
-     * - implement a fail state
-     *      - this is probably just resetting the scene on fail
-     * - implement a visual confirmation of the movement
-     *      - have it be a vector * a speed that drops off - a vector in the opposite direction until the player returns to origin
-     *      - if a player presses the next key, just reset the position and the applied vector (it will look jumpy but we'll keep it)
-     * - implement a transition to next scene on success
-     *      - I think there's an easy script for this (just not sure what it'll look like)
-     * - implement a way to make it clear when the player can actually input stuff 
-     *      - I'm pretty sure I can do this kinda simply by having a similar animation setup on a central shfi character as the arrows, then have him turn on based on player response!
-     */
-
-    /*
-     * how to have arrow off first, then on
-     * i
-     */
-
-    /*
-     * HOW TO SHOW MOVEMENT
-     * when a player presses an accepted button, a vector in that direction gets applied that is continously decelerated by an imposed gravity
-     * if player returns to position 0, then we remove every vector applied
-     * when another button is pressed, we reset everything (it should look a lil jumpy). It might also be nice to have the arrow light up (something we can achieve by setting isGlowing based on vector
+     * what to work on:
+     * 1. displaying shfi and their movements
+     * 2. Insert a tank
+     * 3. adding blackout and fade in animation on failure/start
      * 
      */
 
