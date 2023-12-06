@@ -116,8 +116,8 @@ public class ManageGridElement : MonoBehaviour
                 {
                     // only move a long rock if future position is supported by two pushables underneath
                     if (Layer == "LongRock"
-                    && Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor - 0.5f, -1f, 0f), .05f, Pushable)
-                    && Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor + 0.5f, -1f, 0f), .05f, Pushable)
+                    && Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor - 0.5f, -1f, 0f), .05f, Pushable | LongRock)
+                    && Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor + 0.5f, -1f, 0f), .05f, Pushable | LongRock)
                     && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .05f, LongRock))
                     {
                         // modify move point
