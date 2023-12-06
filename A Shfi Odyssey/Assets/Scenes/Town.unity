@@ -1923,8 +1923,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4170,7 +4170,8 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1003643278}
   dialogueText: {fileID: 750554577}
   dialogue:
-  - Well done, young Shfi.
+  - Marvelous Moves, young Shfi! Brings me back to my time at sea. As thanks, I will
+    grant you one wish. And for the 5th time, I cannot make you a human.
   npcSound: {fileID: 1998378108}
   wordSpeed: 0.06
   playerIsClose: 0
@@ -5029,7 +5030,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -714, y: -427.0001}
-  m_SizeDelta: {x: 190, y: 190}
+  m_SizeDelta: {x: 185, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1785128683
 MonoBehaviour:
