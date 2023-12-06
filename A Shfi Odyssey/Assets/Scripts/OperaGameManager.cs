@@ -88,7 +88,6 @@ public class OperaGameManager : MonoBehaviour
     void Update()
     {
         bool isAnimationRunning = fader.animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
-        UnityEngine.Debug.Log(isAnimationRunning);
         if (!isAnimationRunning)
         {
             playerMovement();
