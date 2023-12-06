@@ -33,7 +33,7 @@ public class StartPuzzle : MonoBehaviour
 
             if (Globals.boatPuzzle == false)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
                 Globals.boatPuzzle = true;
             }
             else
