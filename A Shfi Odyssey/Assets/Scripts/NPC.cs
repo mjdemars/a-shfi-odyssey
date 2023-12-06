@@ -11,6 +11,8 @@ public class NPC : MonoBehaviour
     public string[] dialogue;
     private int index;
 
+    public AudioSource npcSound;
+
     public float wordSpeed;
     public bool playerIsClose;
 
@@ -27,6 +29,7 @@ void Start()
         {
             if (!dialoguePanel.activeInHierarchy)
             {
+                npcSound.Play();
                 dialoguePanel.SetActive(true);
                 StartCoroutine(Typing());
             }

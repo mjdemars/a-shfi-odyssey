@@ -6,14 +6,23 @@ public class Globals : MonoBehaviour
 {
 
     public static bool boatPuzzle;
+    public static bool shipPuzzle;
 
     public GameObject NPCbubble1;
     public GameObject NPCbubble2;
 
+    public GameObject SageFish;
+    public GameObject SageFishBubble;
+
+    private GameObject player;
+    private Rigidbody2D rBody;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
+        rBody = player.GetComponent<Rigidbody2D> ();
+        rBody.isKinematic = false;
     }
 
     // Update is called once per frame
@@ -22,9 +31,17 @@ public class Globals : MonoBehaviour
         if (boatPuzzle == true)
         {
             NPCbubble1.SetActive(false);
+            NPCbubble2.SetActive(true);
         }
-        else
+        else 
         {
+            NPCbubble2.SetActive(false);
+        }
+
+        if (shipPuzzle == true)
+        {
+            SageFish.SetActive(true);
+            SageFishBubble.SetActive(true);
             NPCbubble2.SetActive(false);
         }
     }

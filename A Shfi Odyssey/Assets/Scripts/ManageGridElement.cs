@@ -11,8 +11,10 @@ public class ManageGridElement : MonoBehaviour
     public LayerMask whatStopsMovement;
     public LayerMask Player;
     public LayerMask Pushable;
+    public LayerMask LongRock;
     public LayerMask Anchor;
     public string Layer;
+    public bool isLongRock;
 
     // detected movement
     private float moveHor;
@@ -36,7 +38,7 @@ public class ManageGridElement : MonoBehaviour
             {   
                 movePlayer();
                 Animate();
-            } else if (Layer == "Pushable")
+            } else if (Layer == "Pushable" || Layer == "LongRock")
             {
                 moveRock();
             }
@@ -82,6 +84,7 @@ public class ManageGridElement : MonoBehaviour
             // if player is more than one tile away from obstacle
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement)
             && !Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .4f, Pushable)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .4f, LongRock)
             && !Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .4f, Anchor))
             {
                 // modify move point
@@ -92,6 +95,7 @@ public class ManageGridElement : MonoBehaviour
             // if player is more than one tile away from obstacle
             if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .2f, whatStopsMovement)
                 && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .4f, Pushable)
+                && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .4f, LongRock)
                 && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, moveVert, 0f), .4f, Anchor))
             {
                 // modify move point
@@ -104,32 +108,62 @@ public class ManageGridElement : MonoBehaviour
     {
         if (Mathf.Abs(moveHor) == 1f) // rock only moves if player pushes or pulls from a horizontally adjacent tile
         {
-            // if rock is less than one tile away from player
+            // if rock is less than one tile away from player and more than one tile away
             if (Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .05f, Player))
             {
                 // if rock is more than one tile away from obstacle
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor, 0f, 0f), .2f, whatStopsMovement))
                 {
-                    // modify move point
-                    movePoint.position += new Vector3(moveHor, 0f, 0f);
+                    // only move a long rock if future position is supported by two pushables underneath
+                    if (Layer == "LongRock"
+                    && Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor - 0.5f, -1f, 0f), .05f, Pushable | LongRock)
+                    && Physics2D.OverlapCircle(movePoint.position + new Vector3(moveHor + 0.5f, -1f, 0f), .05f, Pushable | LongRock)
+                    && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .05f, LongRock))
+                    {
+                        // modify move point
+                        movePoint.position += new Vector3(moveHor, 0f, 0f);
+                    } else if (Layer == "Pushable" && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .05f, LongRock)) // Otherwise, can move pushable rock
+                    {
+                        // modify move point
+                        movePoint.position += new Vector3(moveHor, 0f, 0f);
+                    }
                 }
             }
         }
+
+        moveRockDown();
+    }
+
+    void moveRockDown()
+    {
+        float tilesFallen = 0; // track the number of tiles a rock has fallen down
+
         // if the space below a rock is empty, move down one space (gravity)
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, whatStopsMovement)
-            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Player)
-            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Pushable)
-            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .5f, Anchor))
+        while (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, whatStopsMovement)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Player)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Pushable)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, LongRock)
+            && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .05f, Anchor))
         {
-            // modify move point
-            movePoint.position += new Vector3(0f, -1f, 0f);
+            movePoint.position += new Vector3(0f, -1f, 0f); // move rock down one tile
+            tilesFallen++;
         }
+
+        if (tilesFallen >= 2) // player loses if rock falls too far
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("You lost!");
+        }
+        
     }
 
     bool gameWon()
     {
-        // if the there is nothing in the tile above the anchor, game is won
-        return (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .05f, Pushable));
+        // if the there is nothing in the two tiles above the anchor, game is won
+        return (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .05f, Pushable)
+                && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 2f, 0f), .05f, Pushable)
+                && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .05f, LongRock)
+                && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 2f, 0f), .05f, LongRock));
     }
 
 }

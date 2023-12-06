@@ -7,21 +7,29 @@ public class StartPuzzle : MonoBehaviour
 {
     public GameObject dialoguePanel;
 
-    private Transform playerPosition;
+    private GameObject player;
+
+    private Rigidbody2D rBody;
+    
+    private GameObject backgroundSound;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
+        rBody = player.GetComponent<Rigidbody2D> ();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // DontDestroyOnLoad(playerPosition);
-
         if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeSelf)
         {
+            rBody.isKinematic = true;
+            DontDestroyOnLoad(player);
+            backgroundSound = GameObject.FindGameObjectWithTag("IntroSounds");
+            
+            if (backgroundSound) Destroy(backgroundSound);
 
             if (Globals.boatPuzzle == false)
             {
@@ -31,6 +39,7 @@ public class StartPuzzle : MonoBehaviour
             else
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+                Globals.shipPuzzle = true;
             }
         }
     }
