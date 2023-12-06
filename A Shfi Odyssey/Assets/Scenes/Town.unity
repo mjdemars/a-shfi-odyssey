@@ -758,8 +758,9 @@ MonoBehaviour:
   dialoguePanel: {fileID: 102386034}
   dialogueText: {fileID: 1617619828}
   dialogue:
-  - Please help! My boat is stuck! You look like you could go into the water and
-    see what's wrong. Will you help me?
+  - "Hey, little fella! Haven\u2019t seen ya around here. I\u2019m sure you\u2019re
+    eager to put those fins to good use. Say, my boat\u2019s a little banged up.
+    Mind helping me out? Of course I\u2019ll pay ya back."
   npcSound: {fileID: 1998378108}
   wordSpeed: 0.06
   playerIsClose: 0
@@ -4309,7 +4310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Filler Text
+  m_text: Filler text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4336,8 +4337,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
