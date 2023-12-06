@@ -10,6 +10,8 @@ public class StartPuzzle : MonoBehaviour
     private GameObject player;
 
     private Rigidbody2D rBody;
+    
+    private GameObject backgroundSound;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,9 @@ public class StartPuzzle : MonoBehaviour
         {
             rBody.isKinematic = true;
             DontDestroyOnLoad(player);
-
+            backgroundSound = GameObject.FindGameObjectWithTag("IntroSounds");
+            
+            if (backgroundSound) Destroy(backgroundSound);
 
             if (Globals.boatPuzzle == false)
             {
