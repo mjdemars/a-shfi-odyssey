@@ -633,9 +633,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188762960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.27, y: -2.13, z: -269.2178}
-  m_LocalScale: {x: 0.78840375, y: 0.78840375, z: 0.78840375}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 35.27, y: -2.15, z: -269.2178}
+  m_LocalScale: {x: 4.654847, y: 4.654847, z: 4.654847}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1202357829}
   m_RootOrder: 6
@@ -681,7 +681,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19ecf42d5c7a947eab8cf0cf908f767e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e54fb25c2ff0d4d3f94ea01aad68b83f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -815,8 +815,9 @@ MonoBehaviour:
   dialoguePanel: {fileID: 102386034}
   dialogueText: {fileID: 1617619828}
   dialogue:
-  - Please help! My boat is stuck! You look like you could go into the water and
-    see what's wrong. Will you help me?
+  - "Hey, little fella! Haven\u2019t seen ya around here. I\u2019m sure you\u2019re
+    eager to put those fins to good use. Say, my boat\u2019s a little banged up.
+    Mind helping me out? Of course I\u2019ll pay ya back."
   npcSound: {fileID: 1998378108}
   wordSpeed: 0.06
   playerIsClose: 0
@@ -913,9 +914,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301571269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.46, y: -2.48, z: -269.2178}
-  m_LocalScale: {x: 0.6649829, y: 0.6649829, z: 0.6649829}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 38.46, y: -2.5, z: -269.2178}
+  m_LocalScale: {x: 3.926153, y: 3.926153, z: 3.926153}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1202357829}
   m_RootOrder: 5
@@ -961,7 +962,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 316336d4d9afe4c0fa94eb332a1f37a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e54fb25c2ff0d4d3f94ea01aad68b83f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1184,8 +1185,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1259,9 +1260,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444654432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.41, y: -2.48, z: -269.2178}
-  m_LocalScale: {x: 0.6649829, y: 0.6649829, z: 0.6649829}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 41.41, y: -2.5, z: -269.2178}
+  m_LocalScale: {x: 3.926153, y: 3.926153, z: 3.926153}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1202357829}
   m_RootOrder: 4
@@ -1307,7 +1308,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19ecf42d5c7a947eab8cf0cf908f767e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e54fb25c2ff0d4d3f94ea01aad68b83f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1979,8 +1980,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2412,8 +2413,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2487,9 +2488,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916561824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.39, y: -2.48, z: -269.2178}
-  m_LocalScale: {x: 0.6649829, y: 0.6649829, z: 0.6649829}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 44.39, y: -2.5, z: -269.2178}
+  m_LocalScale: {x: 3.926153, y: 3.926153, z: 3.926153}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1202357829}
   m_RootOrder: 8
@@ -2535,7 +2536,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19ecf42d5c7a947eab8cf0cf908f767e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e54fb25c2ff0d4d3f94ea01aad68b83f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4226,7 +4227,8 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1003643278}
   dialogueText: {fileID: 750554577}
   dialogue:
-  - Well done, young Shfi.
+  - Marvelous Moves, young Shfi! Brings me back to my time at sea. As thanks, I will
+    grant you one wish. And for the 5th time, I cannot make you a human.
   npcSound: {fileID: 1998378108}
   wordSpeed: 0.06
   playerIsClose: 0
@@ -4366,7 +4368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Filler Text
+  m_text: Filler text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4393,8 +4395,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4478,8 +4480,11 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1221181385}
   dialogueText: {fileID: 899143476}
   dialogue:
-  - None of my dancers can memorize the right choreography! You there! I hear fish
-    have great memories, can you help with our show?
+  - "People around here have no appreciation for the arts! When will they understand
+    the majesty of the sea\u2026 ugh if only there was something I could do. We have
+    one performance left in the season and it needs to be grand! A dazzling homage
+    to our roots. That\u2019s it! You are just what I need. What do you say to being
+    the muse for the best play this town\u2019s ever seen?"
   npcSound: {fileID: 1998378108}
   wordSpeed: 0.06
   playerIsClose: 0
@@ -5082,7 +5087,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -714, y: -427.0001}
-  m_SizeDelta: {x: 190, y: 190}
+  m_SizeDelta: {x: 185, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1785128683
 MonoBehaviour:
@@ -5430,9 +5435,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916017428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.4, y: -1.8, z: -269.2178}
-  m_LocalScale: {x: 0.9018337, y: 0.9018337, z: 0.9018337}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 57.4, y: -1.8199999, z: -269.2178}
+  m_LocalScale: {x: 5.3245535, y: 5.3245535, z: 5.3245535}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1202357829}
   m_RootOrder: 10
@@ -5478,7 +5483,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 316336d4d9afe4c0fa94eb332a1f37a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e54fb25c2ff0d4d3f94ea01aad68b83f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5514,9 +5519,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925810587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.84, y: -2.33, z: -269.2178}
-  m_LocalScale: {x: 0.717849, y: 0.717849, z: 0.717849}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 53.84, y: -2.35, z: -269.2178}
+  m_LocalScale: {x: 4.2382817, y: 4.2382817, z: 4.2382817}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1202357829}
   m_RootOrder: 9
@@ -5562,7 +5567,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 316336d4d9afe4c0fa94eb332a1f37a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e54fb25c2ff0d4d3f94ea01aad68b83f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5810,9 +5815,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957998132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.97, y: -2.33, z: -269.2178}
-  m_LocalScale: {x: 0.717849, y: 0.717849, z: 0.717849}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 31.97, y: -2.35, z: -269.2178}
+  m_LocalScale: {x: 4.2382817, y: 4.2382817, z: 4.2382817}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1202357829}
   m_RootOrder: 7
@@ -5858,7 +5863,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 316336d4d9afe4c0fa94eb332a1f37a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e54fb25c2ff0d4d3f94ea01aad68b83f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

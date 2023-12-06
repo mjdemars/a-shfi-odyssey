@@ -29,6 +29,11 @@ public class ManageGridElement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E)) 
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
         getInputs();
 
         // if sprite is within range of move point
