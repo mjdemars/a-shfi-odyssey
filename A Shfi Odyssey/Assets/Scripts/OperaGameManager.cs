@@ -15,8 +15,11 @@ public class OperaGameManager : MonoBehaviour
     public GameObject[] directionSprites;
 
     public GameObject player;
+    public levelChange fader;
 
-    public GameObject colliderCheck;
+    
+    //public Animator animator;
+    
     //
     private int dirSelect;
     
@@ -78,23 +81,31 @@ public class OperaGameManager : MonoBehaviour
         generateList();
     }
 
+
+    
+
     // Update is called once per frame
     void Update()
     {
-        playerMovement();
-
-        if (letPlayerRespond)
+        bool isAnimationRunning = fader.animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
+        UnityEngine.Debug.Log(isAnimationRunning);
+        if (!isAnimationRunning)
         {
-            if (playerPattern.Count < currentRound)
+            playerMovement();
+
+            if (letPlayerRespond)
             {
-                playerController();
-            }
-            
-        } else
-        {
-            directionGlowController();
-        }
+                if (playerPattern.Count < currentRound)
+                {
+                    playerController();
+                }
 
+            }
+            else
+            {
+                directionGlowController();
+            }
+        }
     }
 
     
@@ -239,7 +250,7 @@ public class OperaGameManager : MonoBehaviour
             {
                 // makes it clear you screwed up. In time this is also where the FAIL STATE should occur
                 UnityEngine.Debug.Log("Brother you screwed up here, let's clear your playerPattern");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
 
                 playerPattern.Clear();
             }
@@ -249,7 +260,8 @@ public class OperaGameManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("WOOT! This was the final one!! CongratS!");
             playerPattern.Clear();
-            StartCoroutine(switchScene());
+            fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex - 2);
+            //StartCoroutine(switchScene());
         } else
         {
             UnityEngine.Debug.Log("okay good job on that round chief! ready to go again?");
@@ -359,4 +371,6 @@ public class OperaGameManager : MonoBehaviour
         // UpdatePlayerLocation();
         yield return new WaitForSeconds(1f);
     }
+
+ 
 }
