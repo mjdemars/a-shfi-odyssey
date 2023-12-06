@@ -177,24 +177,47 @@ public class OperaGameManager : MonoBehaviour
 
         //resets Shfi's position in case they were moving before:
         player.GetComponent<Transform>().localPosition = new Vector3(0, 0, 0);
-
+        Vector3 playerScale = player.GetComponent<Transform>().localScale;
         //resets movementVector to ready next one
         MovementVector = new Vector3(0, 0, 0);
         movementStrength = originalMovementStrength;
+
+        bool needsFlipping = false;
+
         switch(direction)
         {
             case (dir.Up):
                 MovementVector = Vector3.up;
+                /*if (playerScale.x < 0)
+                {
+                    needsFlipping = true;
+                }*/
                 break;
             case (dir.Down):
                 MovementVector = Vector3.down;
+                /*if (player.GetComponent<Transform>().localScale.x > 0)
+                {
+                    needsFlipping = true;
+                }*/
                 break;
             case (dir.Left):
                 MovementVector = Vector3.left;
+                if (player.GetComponent<Transform>().localScale.x < 0)
+                {
+                    needsFlipping = true;
+                }
                 break;
             case (dir.Right):
                 MovementVector = Vector3.right;
+                if (player.GetComponent<Transform>().localScale.x > 0)
+                {
+                    needsFlipping = true;
+                }
                 break;
+        }
+        if (needsFlipping)
+        {
+            player.GetComponent<Transform>().localScale = new Vector3(-1 * playerScale.x, playerScale.y, playerScale.z);
         }
         UnityEngine.Debug.Log("Movement Vector is now: " + MovementVector);
         //just to kickstart the movement a bit:
@@ -237,6 +260,7 @@ public class OperaGameManager : MonoBehaviour
 
     void playerController()
     {
+        
         //based on the given movement, will add the response to playerPattern
         if (Input.GetButtonDown("Vertical"))
         {
@@ -323,6 +347,7 @@ public class OperaGameManager : MonoBehaviour
     /*
      * what to work on:
      * 1. displaying shfi and their movements
+     * in order to deal with shfi's state-just have left and right flip the image of shfi
      * 2. Insert a tank
      * 3. adding blackout and fade in animation on failure/start
      * 
