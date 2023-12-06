@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LeaveInstructions : MonoBehaviour
 {
-
+    private GameObject instructionsPanel;
+    private 
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,26 @@ public class LeaveInstructions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // Underwater puzzle is scene 4; instructions are 6
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+            if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+            } else
+            {
+                instructionsPanel = GameObject.FindWithTag("OperaInstructionsPanel");
+                Debug.Log("yoo congrats you found the instructionpanel!!!! wooo!!");
+                if (instructionsPanel != null)
+                {
+                    Debug.Log("WOO!!");
+                    instructionsPanel.SetActive(false);
+                    //instructionsPanel.activeSelf;
+                }
+                else
+                {
+                    Debug.Log("Awww :(");
+                }
+                
+            }
+            
         }
     }
 }

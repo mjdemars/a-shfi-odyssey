@@ -33,11 +33,13 @@ public class StartPuzzle : MonoBehaviour
 
             if (Globals.boatPuzzle == false)
             {
+                levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
                 Globals.boatPuzzle = true;
             }
             else
             {
+                levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
                 Globals.shipPuzzle = true;
             }

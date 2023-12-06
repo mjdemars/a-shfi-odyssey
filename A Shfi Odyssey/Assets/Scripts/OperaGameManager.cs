@@ -16,11 +16,11 @@ public class OperaGameManager : MonoBehaviour
 
     public GameObject player;
     public levelChange fader;
+    public GameObject instructionsPanel;
 
-    
-    //public Animator animator;
-    
-    //
+    //variable for checking if the instructions need to be repeated
+    private static bool instructionsHaveRun;
+
     private int dirSelect;
     
     //in charge of the time that arrows stay on and off when being presented
@@ -51,6 +51,13 @@ public class OperaGameManager : MonoBehaviour
     {
         Up, Down, Left, Right
     }
+
+    private enum state
+    {
+        instructions, game
+    }
+    private state stateSelect;
+
     //variable storing how many rounds we want to have
     public int totalRounds = 10;
 
@@ -79,6 +86,7 @@ public class OperaGameManager : MonoBehaviour
     {
         //add the pattern to the directionPattern list
         generateList();
+        generateStartingState();
     }
 
 
@@ -87,22 +95,29 @@ public class OperaGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if the game isn't currently fading in...
         bool isAnimationRunning = fader.animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
         if (!isAnimationRunning)
         {
-            playerMovement();
-
-            if (letPlayerRespond)
+            if (stateSelect == state.instructions)
             {
-                if (playerPattern.Count < currentRound)
-                {
-                    playerController();
-                }
-
+                runInstructions();
             }
-            else
+            else if (stateSelect == state.game)
             {
-                directionGlowController();
+                playerMovement();
+
+                if (letPlayerRespond)
+                {
+                    if (playerPattern.Count < currentRound)
+                    {
+                        playerController();
+                    }
+                }
+                else
+                {
+                    directionGlowController();
+                }
             }
         }
     }
@@ -249,6 +264,7 @@ public class OperaGameManager : MonoBehaviour
             {
                 // makes it clear you screwed up. In time this is also where the FAIL STATE should occur
                 UnityEngine.Debug.Log("Brother you screwed up here, let's clear your playerPattern");
+                levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex;
                 fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
 
                 playerPattern.Clear();
@@ -259,6 +275,7 @@ public class OperaGameManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("WOOT! This was the final one!! CongratS!");
             playerPattern.Clear();
+            levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex - 2;
             fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex - 2);
             //StartCoroutine(switchScene());
         } else
@@ -356,20 +373,34 @@ public class OperaGameManager : MonoBehaviour
     }
 
     /*
-     * what to work on:
-     * 1. displaying shfi and their movements
-     * in order to deal with shfi's state-just have left and right flip the image of shfi
-     * 2. Insert a tank
-     * 3. adding blackout and fade in animation on failure/start
-     * 
+     * how to do dialogue:
+     * 1. have a state manager that's either in dialogue or game phase can trigger a function that sets the state to next level
+     * 2. if no animation running, then we check to see if the animation has played before by checking against
      */
 
-    IEnumerator switchScene()
+    void generateStartingState()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
-        // UpdatePlayerLocation();
-        yield return new WaitForSeconds(1f);
+
+        //we want to start the instruction sequence only if the player has not experienced the instruction before, so
+        //if the previous scene wasn't this scene, it's instruction time
+        if (levelHandle.instance.prevScene != SceneManager.GetActiveScene().buildIndex)
+        {
+            stateSelect = state.instructions;
+        } else
+        {
+            instructionsPanel.SetActive(false);
+            stateSelect = state.game;
+        }
     }
 
- 
+    void runInstructions()
+    {
+        //if the player pressess the q keycode, that turns off the instructions anyways and lets the game run
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            stateSelect = state.game;
+        }
+    }
+
+
 }
