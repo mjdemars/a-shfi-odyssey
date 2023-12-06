@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -75,13 +76,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
-        if (isJumping && jumpCount > 0)
+        if (!(SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 5 || SceneManager.GetActiveScene().buildIndex == 6))
         {
-            rb.AddForce(new Vector2(0f, jumpForce));
-            jumpCount--;
+            rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+            if (isJumping && jumpCount > 0)
+            {
+                rb.AddForce(new Vector2(0f, jumpForce));
+                jumpCount--;
+            }
+            isJumping = false;
         }
-        isJumping = false;
     }
 
     private void FlipCharacter() {
