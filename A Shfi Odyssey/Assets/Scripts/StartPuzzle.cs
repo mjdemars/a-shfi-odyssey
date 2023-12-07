@@ -39,10 +39,18 @@ public class StartPuzzle : MonoBehaviour
             }
             else
             {
-                levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-                Globals.shipPuzzle = true;
+                if (Globals.operaPuzzle == false)
+                {
+                    levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+                    Globals.operaPuzzle = true;
+                }
+                else
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
+                }
             }
+
         }
     }
 }

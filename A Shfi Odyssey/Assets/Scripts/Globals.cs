@@ -6,7 +6,7 @@ public class Globals : MonoBehaviour
 {
 
     public static bool boatPuzzle;
-    public static bool shipPuzzle;
+    public static bool operaPuzzle;
 
     public GameObject NPCbubble1;
     public GameObject NPCbubble2;
@@ -38,7 +38,7 @@ public class Globals : MonoBehaviour
             NPCbubble2.SetActive(false);
         }
 
-        if (shipPuzzle == true)
+        if (operaPuzzle == true)
         {
             SageFish.SetActive(true);
             SageFishBubble.SetActive(true);

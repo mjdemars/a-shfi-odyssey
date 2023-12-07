@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UnderwaterInstructions.unity
     guid: 9f406654243be4f859ccc95bce606cc0
+  - enabled: 1
+    path: Assets/Scenes/TheEnd.unity
+    guid: 0811f12b6c3044415ad8647787a26111
   m_configObjects: {}
