@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6253710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.503, y: -2.5, z: 0}
+  m_LocalPosition: {x: -20.887, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -512,6 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 481787892}
   whatStopsMovement:
@@ -666,7 +667,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209959620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.37, y: 0.38, z: 0}
+  m_LocalPosition: {x: -15.0199995, y: 0.38, z: 0}
   m_LocalScale: {x: 1.025, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -677,6 +678,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &266075523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5187501664244933891, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_Name
+      value: LevelChanger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933891, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 141.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 77.44777
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.528783
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187501664244933901, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
 --- !u!1 &272073555
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +816,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272073555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 4, z: 0}
+  m_LocalPosition: {x: -25.349998, y: 4, z: 0}
   m_LocalScale: {x: 0.785, y: 0.785, z: 0.785}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -839,7 +901,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284427515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.42, y: 6.86, z: 0}
+  m_LocalPosition: {x: -21.97, y: 6.86, z: 0}
   m_LocalScale: {x: 3.8579583, y: 3.8579583, z: 3.8579583}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -896,7 +958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343652952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4699998, y: -3.49, z: 0}
+  m_LocalPosition: {x: -21.92, y: -3.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1047,6 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 1569842018}
   whatStopsMovement:
@@ -1175,6 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 2066163180}
   whatStopsMovement:
@@ -1242,6 +1306,17 @@ Transform:
   m_Father: {fileID: 2060438533}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603631866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5187501664244933900, guid: ff3241fa19dea46c6988021904bb9228, type: 3}
+  m_PrefabInstance: {fileID: 266075523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efc2ab863208474c9ed11add6651bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &610731179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 840277699}
   whatStopsMovement:
@@ -1549,6 +1625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 947559271}
   whatStopsMovement:
@@ -1711,6 +1788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 858746582}
   whatStopsMovement:
@@ -2141,6 +2219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 631997376}
   whatStopsMovement:
@@ -2736,7 +2815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975522952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -25.39, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3090,6 +3169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 702258912}
   whatStopsMovement:
@@ -3431,7 +3511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160851391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.475336, y: -0.7853487, z: -5.943258}
+  m_LocalPosition: {x: -1.9146633, y: -0.7853487, z: -5.943258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3465,7 +3545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162761847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -2.5, z: 1}
+  m_LocalPosition: {x: -27.89, y: -2.5, z: 1}
   m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3486,6 +3566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 81689296}
   whatStopsMovement:
@@ -4187,7 +4268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304965500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 2.56, z: 0}
+  m_LocalPosition: {x: -25.4, y: 2.56, z: 0}
   m_LocalScale: {x: 16, y: 3.3378396, z: 1.1104921}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4547,6 +4628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 86792861}
   whatStopsMovement:
@@ -4879,6 +4961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 2052641014}
   whatStopsMovement:
@@ -4906,7 +4989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667644808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5059998, y: -3.496, z: 0}
+  m_LocalPosition: {x: -21.883999, y: -3.496, z: 0}
   m_LocalScale: {x: 0.96, y: 0.96, z: 0.96}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4992,7 +5075,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670454092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.07, y: -0.01, z: 0}
+  m_LocalPosition: {x: -21.32, y: -0.01, z: 0}
   m_LocalScale: {x: 0.785, y: 0.785, z: 0.9691358}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5178,6 +5261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 745106984}
   whatStopsMovement:
@@ -5275,6 +5359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 144992869}
   whatStopsMovement:
@@ -5406,6 +5491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 1190217919}
   whatStopsMovement:
@@ -5604,6 +5690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 1986083615}
   whatStopsMovement:
@@ -5718,6 +5805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 1980554556}
   whatStopsMovement:
@@ -5815,6 +5903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 1959187915}
   whatStopsMovement:
@@ -6413,6 +6502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ea9dec8a91f4137bbf588194f8e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 603631866}
   moveSpeed: 5
   movePoint: {fileID: 540851431}
   whatStopsMovement:

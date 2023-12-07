@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ManageGridElement : MonoBehaviour
 {
     // set in Unity
+    public levelChange fader;
     public float moveSpeed;
     public Transform movePoint;
     public LayerMask whatStopsMovement;
@@ -31,7 +32,7 @@ public class ManageGridElement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E)) 
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
         }
 
         getInputs();
@@ -53,7 +54,7 @@ public class ManageGridElement : MonoBehaviour
         {
             if (gameWon()) 
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex - 1);
             }
         }
         
@@ -156,8 +157,7 @@ public class ManageGridElement : MonoBehaviour
 
         if (tilesFallen >= 2) // player loses if rock falls too far
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log("You lost!");
+            fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
         }
         
     }
