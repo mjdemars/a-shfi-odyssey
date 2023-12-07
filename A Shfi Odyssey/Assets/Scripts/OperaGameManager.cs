@@ -275,8 +275,8 @@ public class OperaGameManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("WOOT! This was the final one!! CongratS!");
             playerPattern.Clear();
-            levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex - 2;
-            fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex - 2);
+            levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex;
+            fader.FadeToLevel(8);
             //StartCoroutine(switchScene());
         } else
         {

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class LeaveInstructions : MonoBehaviour
 {
     private GameObject instructionsPanel;
-    private 
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +21,8 @@ public class LeaveInstructions : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
-            } else
+            //otherwise if we're in the opera scene...
+            } else if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 instructionsPanel = GameObject.FindWithTag("OperaInstructionsPanel");
                 Debug.Log("yoo congrats you found the instructionpanel!!!! wooo!!");
@@ -37,6 +37,9 @@ public class LeaveInstructions : MonoBehaviour
                     Debug.Log("Awww :(");
                 }
                 
+            } else
+            {
+                //if we're in the win message screen, q should do....nothing?
             }
             
         }

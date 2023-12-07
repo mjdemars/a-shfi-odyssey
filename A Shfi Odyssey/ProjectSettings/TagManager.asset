@@ -6,6 +6,7 @@ TagManager:
   tags:
   - IntroSounds
   - OperaInstructionsPanel
+  - SailorInstructionsPanel
   layers:
   - Default
   - TransparentFX

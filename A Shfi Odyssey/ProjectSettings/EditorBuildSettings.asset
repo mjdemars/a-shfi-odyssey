@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheEnd.unity
     guid: 0811f12b6c3044415ad8647787a26111
+  - enabled: 1
+    path: Assets/Scenes/winMessageScene.unity
+    guid: 26f2eaa5387d9834a84bc91aa7a8f767
   m_configObjects: {}

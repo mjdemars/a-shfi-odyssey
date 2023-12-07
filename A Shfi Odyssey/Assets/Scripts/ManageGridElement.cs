@@ -26,6 +26,7 @@ public class ManageGridElement : MonoBehaviour
     void Start()
     {
         movePoint.parent = null;
+        
     }
 
     void Update()
@@ -54,7 +55,8 @@ public class ManageGridElement : MonoBehaviour
         {
             if (gameWon()) 
             {
-                fader.FadeToLevel(SceneManager.GetActiveScene().buildIndex - 1);
+                levelHandle.instance.prevScene = SceneManager.GetActiveScene().buildIndex;
+                fader.FadeToLevel(8);
             }
         }
         
